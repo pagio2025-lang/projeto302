@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang ="pt-br"></html>
 <head>
-    <meta chars ="UTF-8">
+    <meta charset ="UTF-8">
     <title>To Do List</title>
     <link rel ="styles heet" href ="style.css">
 </head>
@@ -18,13 +18,21 @@
   <ul>
     <?php
     $sql ="SELECT * FROM tasks ORDER BY id DESC";
-    $result = $com->query($sql);
+    $result = $conn -> query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            
+            echo "<li>";
+            echo $row['status'] == 'concluída' ? "<s>{$row['title']}</s>" : $row['title'];
+            echo "
+               <a href='update_task.php?id={$row['id']}'>v</a>
+               <a href='delete_task.php?id={$row['id']}'>l</a>";
+            echo "</li>";
         }
+        } else {
+            echo "<p>Nenhuma tarefa cadastrada.</p>";
     }
+    ?>
   </ul>
    </body>
    </html>
