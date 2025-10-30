@@ -5,7 +5,7 @@
 <head>
     <meta charset ="UTF-8">
     <title>To Do List</title>
-    <link rel ="styles heet" href ="style.css">
+    <link rel ="stylesheet" href ="style.css">
 </head>
    <body>
        <h1>Minha To Do List</h1>
@@ -25,8 +25,8 @@
             echo "<li>";
             echo $row['status'] == 'concluída' ? "<s>{$row['title']}</s>" : $row['title'];
             echo "
-               <a href='update_task.php?id={$row['id']}'>v</a>
-               <a href='delete_task.php?id={$row['id']}'>l</a>";
+               <a href='update_task.php?id={$row['id']}'>📝</a>
+               <a href='delete_task.php?id={$row['id']}'>❌</a>";
             echo "</li>";
         }
         } else {
